@@ -54,7 +54,6 @@ delete from artist
 where
     id = 3;
 
--- Remove all data from the playlist table
--- truncate table
---     playlist
---     cascade;
+-- Remove all data from the playlist table along with all
+-- referencing records (playlist_entry and followed_playlist)
+truncate table playlist cascade;

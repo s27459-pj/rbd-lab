@@ -10,5 +10,11 @@ migrate:
 		$(EXEC_COMMAND) $(PSQL_COMMAND) < $${file}; \
 	done
 
+migrate_merged:
+	@for file in ./merged_migrations/*.sql; do \
+		echo $$file; \
+		$(EXEC_COMMAND) $(PSQL_COMMAND) < $${file}; \
+	done
+
 clean:
 	$(EXEC_COMMAND) $(PSQL_COMMAND) < ./migrations/0000_clean.sql
